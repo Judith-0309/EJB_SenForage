@@ -1,0 +1,106 @@
+//package controller;
+//
+//import java.io.IOException;
+//
+//import javax.ejb.EJB;
+//import javax.persistence.EntityManager;
+//
+//import javax.persistence.PersistenceContext;
+//
+//import javax.servlet.ServletException;
+//import javax.servlet.annotation.WebServlet;
+//import javax.servlet.http.HttpServlet;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+//
+//import sn.forage.dao.IUserLocal;
+//import sn.forage.entities.User;
+//
+//
+///**
+// * Servlet implementation class LoginServlet
+// */
+//@WebServlet(urlPatterns = "/Login")
+//public class UserServlet extends HttpServlet {
+//	private static final long serialVersionUID = 1L;
+//	
+//	@PersistenceContext(unitName="SenForage_UP")
+//	private EntityManager em;
+//	
+//	@EJB
+//	private IUserLocal user_dao;
+//	
+//
+//	/**
+//	 * @see HttpServlet#HttpServlet()
+//	 */
+//	public UserServlet() {
+//		super();
+//
+//	}
+//
+//	
+//
+//	
+////
+////	/**
+////	 * @see Servlet#init(ServletConfig)
+////	 */
+////	public void init(ServletConfig config) throws ServletException {
+////		user_dao = new IUserLocal();
+////	}
+//			
+//			
+//			public User getUserByEmailAndPassword(String email, String password) {
+//				try {
+//		            return (User)em
+//		                    .createQuery("select u from User u where u.email=:e and u.password=:p")
+//		                    .setParameter("e",email)
+//		                    .setParameter("p",password)
+//		                    .getSingleResult();
+//
+//		        }catch (Exception e)
+//		        {
+//		            return null;
+//		        }
+//			}
+//			
+//		
+//			public int add(User user) {
+//				try {
+//					em.getTransaction().begin();
+//					em.persist(user);
+//					em.getTransaction().commit();
+//					return 1;
+//					
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//					return 0;
+//				}
+//				
+//			}
+//		
+//
+//	
+//
+//	/**
+//	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+//	 *      response)
+//	 */
+//	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+//			throws ServletException, IOException {
+//		request.getRequestDispatcher("/WEB-INF/user/Login.jsp").forward(request, response);
+//	}
+//
+//	/**
+//	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+//	 *      response)
+//	 */
+//	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+//			throws ServletException, IOException {
+//
+//		
+//
+//	}
+//
+//}

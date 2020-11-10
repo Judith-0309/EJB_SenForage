@@ -1,0 +1,9 @@
+package sn.forage.dao;
+
+import sn.forage.entities.User;
+
+public class UserDao implements IUserLocal {
+
+
+
+}

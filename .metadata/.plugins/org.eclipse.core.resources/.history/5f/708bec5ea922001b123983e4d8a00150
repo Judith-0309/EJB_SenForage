@@ -1,0 +1,11 @@
+package sn.forage.dao;
+
+
+
+
+@Local
+public class IVillageLocal {
+	
+	
+
+}

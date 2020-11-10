@@ -1,0 +1,5 @@
+package sn.forage.dao;
+
+public class VillageDao {
+
+}

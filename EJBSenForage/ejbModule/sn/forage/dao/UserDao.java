@@ -1,0 +1,53 @@
+package sn.forage.dao;
+
+
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+
+import javax.persistence.PersistenceContext;
+
+
+import sn.forage.entities.User;
+
+@Stateless
+public class UserDao implements IUserLocal {
+
+	 @PersistenceContext(unitName="SenForage_UP")
+	    private EntityManager em;
+		
+		
+			
+		
+	@Override
+	public int add(User user) {
+		try {
+			em.getTransaction().begin();
+			em.persist(user);
+			em.getTransaction().commit();
+			return 1;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
+	@Override
+	public User getUserByEmailAndPassword(String email, String password) {
+		 try {
+	            return (User)em
+	                    .createQuery("select u from User u where u.email=:e and u.password=:p")
+	                    .setParameter("e",email)
+	                    .setParameter("p",password)
+	                    .getSingleResult();
+
+	        }catch (Exception e)
+	        {
+	            return null;
+	        }
+	}
+
+
+
+}

@@ -1,0 +1,73 @@
+
+import java.io.IOException;
+
+import javax.ejb.EJB;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import sn.forage.dao.IUserLocal;
+
+
+/**
+ * Servlet implementation class LoginServlet
+ */
+@WebServlet(urlPatterns = "/Login", name = "loginservlet")
+public class UserServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	@PersistenceContext(unitName="SenForage_UP")
+	private EntityManager em;
+	
+	@EJB
+	private IUserLocal user_dao;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UserServlet() {
+		super();
+
+	}
+
+	private IUser user_dao;
+
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("SenForagePU");
+	EntityManager em = emf.createEntityManager();
+
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init(ServletConfig config) throws ServletException {
+		userdao = new UserImpl();
+
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/user/Login.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		
+
+	}
+
+}

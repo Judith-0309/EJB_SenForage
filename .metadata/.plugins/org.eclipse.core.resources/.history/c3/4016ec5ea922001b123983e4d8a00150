@@ -1,0 +1,16 @@
+package sn.forage.dao;
+
+import java.util.List;
+
+import javax.ejb.Local;
+
+import sn.forage.entities.Village;
+
+
+@Local
+public class IVillageLocal {
+	
+	public List<Village>liste();
+	public int add(Village village);
+
+}
